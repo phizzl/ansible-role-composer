@@ -1,0 +1,7 @@
+---
+galaxy_info:
+  role_name: composer
+  author: phizzl
+  description: Role to run composer install on PHP projects
+
+dependencies: []

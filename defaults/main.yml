@@ -1,0 +1,10 @@
+---
+composer_php_executable: php
+
+composer_phar_file: "~/composer.phar"
+
+## Example
+# composer_install_directories:
+#   - path: /var/www/repo
+#     extraflags: --no-dev
+composer_install_directories: []

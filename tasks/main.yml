@@ -1,0 +1,21 @@
+---
+- name: Check if composer.phar already exists
+  stat:
+    path: "{{ composer_phar_file }}"
+  register: composer_stat_result
+
+- name: Install composer.phar
+  get_url:
+    url: https://getcomposer.org/composer.phar
+    dest: "{{ composer_phar_file }}"
+    mode: 0755
+  when: composer_stat_result.stat.exists == False
+
+- name: Install composer prestissimo
+  shell: "{{ composer_php_executable }} {{ composer_phar_file }} global require -n hirak/prestissimo"
+
+- name: Execute composer install
+  loop: "{{ composer_install_directories }}"
+  loop_control:
+    loop_var: dir
+  shell: "{{ composer_php_executable }} {{ composer_phar_file }} install -o -d {{ dir.path }} {{ dir.extraflags | default('') }}"
