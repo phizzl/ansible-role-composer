@@ -10,7 +10,7 @@ A role run the `composer install` command for PHP applications
 |----------|-------------|---------------|
 | `composer_php_executable` | Path to the php executable that is used during composer install | php |
 | `composer_phar_file`| Path to the `composer.phar`. If it doesn't exist it will be instaled to the given location | "~/composer.phar" |
-| `composer_install_directories`| The artifat definitions. See below for details. | [] |
+| `composer_install_directories`| The directories where the `composer install` command should run. See below for details. | [] |
 
 
 ### `composer_install_directories` details
